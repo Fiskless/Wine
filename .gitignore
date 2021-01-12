@@ -90,6 +90,7 @@ target/
 *.pyc
 local_settings.py
 
+.venv
 .env
 db.sqlite3
 media/
