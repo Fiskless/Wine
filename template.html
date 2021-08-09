@@ -121,13 +121,18 @@
             {% for drink in drinks_dict %}
               <div class="col-lg-4 mb-5 col-md-6">
                 <div class="wine_v_1 text-center pb-4 pt-5">
-                  <img src="images/{{drink.Picture}}" alt="Image" class="img-fluid">
+                  <img src="images/{{drink.Picture}}"  alt="Image" class="img-fluid">
+                  {% if drink.Discount %}
+                    <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
+                  {% endif %}
                   <div>
-                    <h3 class="heading mt-3 mb-3 text-dark">{{drink_category}} </h3>
-                    <p>
-                      Сорт винограда - {{drink.Sort}}<br/>
-                      <span class="price">{{drink.Price}}</span>
-                    </p>
+                    <h3 class="heading mt-3 mb-3 text-dark">{{drink.Name}} </h3>
+                    {% if drink.Sort %}
+                      <p>
+                        Сорт винограда - {{drink.Sort}}<br/>
+                      </p>
+                    {% endif %}
+                    <span class="price">{{drink.Price}} р.</span>
                   </div>
                 </div>
               </div>

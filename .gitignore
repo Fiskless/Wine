@@ -90,6 +90,7 @@ target/
 *.pyc
 local_settings.py
 
+index.html
 .venv
 .env
 db.sqlite3
