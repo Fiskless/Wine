@@ -18,7 +18,7 @@ excel_data_df = pandas.read_excel('wine.xlsx', sheet_name='Sheet1',
                                            'Price', 'Picture', 'Discount'],
                                   na_values='some_dummy_na_value',
                                   keep_default_na=False)
-wine_data = excel_data_df.to_dict(orient='records')
+wine_data = excel_data_df.sort_values('Category').to_dict(orient='records')
 
 drinks_dict = collections.defaultdict(list)
 for wine in wine_data:
