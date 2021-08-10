@@ -92,6 +92,7 @@ local_settings.py
 
 index.html
 .venv
+.replit
 .env
 db.sqlite3
 media/
