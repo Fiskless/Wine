@@ -96,3 +96,4 @@ index.html
 .env
 db.sqlite3
 media/
+.~lock.wine.xlsx#
