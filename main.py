@@ -6,7 +6,7 @@ import pandas
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
-def get_data_from_excel(file_name):
+def get_drinks_sorted_by_category_from_excel(file_name):
     excel_data_df = pandas.read_excel(file_name, sheet_name='Лист1',
                                       usecols=['Категория', 'Имя', 'Сорт',
                                                'Цена', 'Картинка', 'Акция'],
@@ -29,7 +29,7 @@ def main():
     )
     template = env.get_template('template.html')
 
-    drinks_sorted_by_category = get_data_from_excel('wine.xlsx')
+    drinks_sorted_by_category = get_drinks_sorted_by_category_from_excel('wine.xlsx')
 
     rendered_page = template.render(
         winery_age=datetime.datetime.now().year - 1920,
