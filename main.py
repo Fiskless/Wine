@@ -12,11 +12,11 @@ def get_drinks_sorted_by_category_from_excel(file_name):
                                                'Цена', 'Картинка', 'Акция'],
                                       na_values='some_dummy_na_value',
                                       keep_default_na=False)
-    drinks_unsorted = excel_data_df.sort_values('Категория').to_dict(
+    unsorted_drinks = excel_data_df.sort_values('Категория').to_dict(
         orient='records')
 
     drinks_sorted_by_category = collections.defaultdict(list)
-    for drink in drinks_unsorted:
+    for drink in unsorted_drinks:
         drinks_sorted_by_category[drink['Категория']].append(drink)
 
     return drinks_sorted_by_category
@@ -33,7 +33,7 @@ def main():
 
     rendered_page = template.render(
         winery_age=datetime.datetime.now().year - 1920,
-        drinks_data=drinks_sorted_by_category,
+        drinks_sorted_by_category=drinks_sorted_by_category,
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
